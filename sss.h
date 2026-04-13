@@ -6,5 +6,6 @@
 #include <stdio.h>
 
 pid_t getppid();
+int main(int ac, char **av);
 
 #endif
