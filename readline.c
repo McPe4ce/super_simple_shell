@@ -16,14 +16,11 @@ void shell_loop(void)
         printf("$ ");
         fflush(stdout);
 
-        getline(&line, &length, stdin);
+        if (getline(&line, &length, stdin) == -1)
+        {
+        break;
+        }
 
     }
     free(line);
-}
-
-int main(void)
-{
-    shell_loop();
-    return (0);
 }

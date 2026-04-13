@@ -10,4 +10,5 @@ pid_t getppid();
 int arg_print(int ac, char **av);
 void shell_loop(void);
 void _mygetline(void);
+char** split_string(const char *str, const char *delimiters);
 #endif

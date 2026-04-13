@@ -7,6 +7,7 @@ int arg_print(int argc, char **argv)
 {
     while (*argv)
     {
+        (void)argc;
         printf("%s\n", *argv);
         argv++;
     }
