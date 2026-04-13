@@ -23,4 +23,5 @@ void shell_loop(void)
 
     }
     free(line);
+    printf("\n");
 }
