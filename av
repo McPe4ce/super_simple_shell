@@ -1,6 +1,8 @@
 #include "sss.h"
 
-/** */
+/**
+ * main - Reads and prints the arguments 
+ */
 int main (int argc, char **argv)
 {
     while (*argv)
