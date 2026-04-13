@@ -7,5 +7,6 @@
 
 pid_t getppid();
 int main(int ac, char **av);
-
+void shell_loop(void);
+void _mygetline(void);
 #endif
