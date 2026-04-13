@@ -9,7 +9,7 @@
 void shell_loop(void)
 {
     char *line = NULL;
-    size_t *length;
+    size_t length;
 
     while (1)
     {
@@ -20,4 +20,10 @@ void shell_loop(void)
 
     }
     free(line);
+}
+
+int main(void)
+{
+    shell_loop();
+    return (0);
 }

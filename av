@@ -3,7 +3,7 @@
 /**
  * main - Reads and prints the arguments 
  */
-int main (int argc, char **argv)
+int arg_print(int argc, char **argv)
 {
     while (*argv)
     {
