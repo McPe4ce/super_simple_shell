@@ -2,9 +2,12 @@
 #include <unistd.h>
 #include <stdio.h>
 
-pid_t getppid() 
+/**
+ * get_ppid - Prints the parent PID (process ID)
+ */
+pid_t getppid()
 {
-    pid_t ppid = getppid();
-    printf("%d\n", ppid);
-    return 0;
+	pid_t ppid = getppid();
+	printf("%d\n", ppid);
+	return 0;
 }
