@@ -1,6 +1,4 @@
-#include <sys/types.h>
-#include <unistd.h>
-#include <stdio.h>
+#include "sss.h"
 
 /**
  * get_ppid - Prints the parent PID (process ID)
