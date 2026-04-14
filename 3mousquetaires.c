@@ -1,5 +1,13 @@
 #include "sss.h"
 
+/**
+ * thefatherexe - Executes a command in 5 different child processes
+ * As the process launches, the PID is given to the copied process (fork())
+ * we check if pid == 0 to be sure we are in the child process
+ * we execl the command asked for 
+ * and make the parent parent each time the child process is on going
+ * Return: 0 (Success)
+ */
 int thefatherexe(void)
 {
     int counter;
