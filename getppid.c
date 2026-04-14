@@ -1,11 +1,11 @@
 #include "sss.h"
 
-/**
- * get_ppid - Prints the parent PID (process ID)
- */
-pid_t getppid()
+
+int main(void)
 {
-	pid_t ppid = getppid();
-	printf("%d\n", ppid);
-	return 0;
+    pid_t my_pid;
+
+    my_pid = getppid();
+    printf("%u\n", my_pid);
+    return (0);
 }

@@ -2,43 +2,56 @@
 
 /**
  * string_splitter - Splits a string and returns an array of each words
+ * Short breakdown: Creates first a copy of the string, then cuts it into
+ * words with strtok() and checks the size of all those words to creates array
+ * Then because strtok modified the string, we copy it a 2nd time
+ * and fill the array with the tokens
  */
 char** split_string(const char *str, const char *delimiters)
 {
-    char *copy, *token, **result;
+    char *copy, *token, **array;
     int count = 0, index = 0;
+    size_t length, word_length;
 
     if (!str)
     {
         return NULL;
     }
-    /*Creates a copy of the string strtok will modify*/
-    copy = strdup(str);
-    /* First pass: count the number of tokens to know array size */
+    length = 0;
+    
+    while (str[length])
+    {
+        length++;
+    }
+    copy = malloc(length + 1);
+    memcpy(copy, str, length + 1);
     token = strtok(copy, delimiters);
     
     while (token)
     {
         count++;
-        /* Get next token (NULL continues from previous position) */
         token = strtok(NULL, delimiters);
     }
     free(copy);
-    
-    result = malloc((count + 1) * sizeof(char*));
-    
-    copy = strdup(str);
+
+    array = malloc((count + 1) * sizeof(char*)); 
+    copy = malloc(length + 1);
+    memcpy(copy, str, length + 1);
     token = strtok(copy, delimiters);
 
-    /* Second pass: fill the result array with duplicated tokens */
     while (token)
     {
-        /* Store a copy of each token in the array */
-        result[index++] = strdup(token);
+        word_length = 0;
+        while (token[word_length])
+        {
+            word_length++;
+        }
+        array[index] = malloc(word_length + 1);
+        memcpy(array[index++], token, word_length + 1);
         token = strtok(NULL, delimiters);
     }
-    result[index] = NULL;
+    array[index] = NULL;
     free(copy);
-    
-    return (result);
+
+    return (array);
 }
