@@ -1,7 +1,7 @@
 #include "sss.h"
 
 /**
- * string_splitter - Splits a string and returns an array of each words
+ * split_string - Splits a string and returns an array of each words
  * Short breakdown: Creates first a copy of the string, then cuts it into
  * words with strtok() and checks the size of all those words to creates array
  * Then because strtok modified the string, we copy it a 2nd time

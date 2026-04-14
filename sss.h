@@ -6,6 +6,8 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/stat.h>
+#include <dirent.h>
 
 int arg_print(int ac, char **av);
 void shell_loop(void);
