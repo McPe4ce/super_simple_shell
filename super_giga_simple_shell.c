@@ -32,7 +32,7 @@ int main(void)
         printf("$ ");
         fflush(stdout);
 
-        if(getline(&line, &length, stdin) == -1)
+        if (getline(&line, &length, stdin) == -1)
         {
             break;
         }
