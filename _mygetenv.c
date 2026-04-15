@@ -7,18 +7,16 @@
  */
 char *_getenv(const char *name)
 {
-    int index = 0;
     int DAname = strlen(name);
     extern char **environ;
 
     while (*environ)
     {
-        if (strncmp(environ[index], name, DAname) == 0 
-            && environ[index][DAname] == '=')
+        if (strncmp(*environ, name, DAname) == 0 && (*environ)[DAname] == '=')
         {
-            return (environ[index] + DAname + 1);
+            return (*environ + DAname + 1);
         }
-        index++;
+        environ++;
     }
     return (NULL);
 }
