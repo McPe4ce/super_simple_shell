@@ -9,7 +9,7 @@
  * access checks if it is executable
  * Return: (0)
  */
-int find_in_path(const char *filename)
+int pathfinder(const char *filename)
 {
     char **dirs;
     char *path_env;
@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
     for (int index = 1; index < argc; index++)
     {
         // Track if any file wasn't found
-        if (find_in_path(argv[index]) != 0)
+        if (pathfinder(argv[index]) != 0)
         {
             status = 1;
         }

@@ -14,7 +14,8 @@ void shell_loop(void);
 void _mygetline(void);
 char** split_string(const char *str, const char *delimiters);
 int thefatherexe(void);
-int find_in_path(const char *filename);
+int pathfinder(const char *filename);
 int copy_idandexe(char *command);
+char *_getenv(const char *name);
 
 #endif
