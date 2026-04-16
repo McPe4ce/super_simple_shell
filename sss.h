@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <sys/stat.h>
 #include <dirent.h>
+extern char **environ;
 
 typedef struct list_s
 {
@@ -24,5 +25,8 @@ int pathfinder(const char *filename);
 int copy_idandexe(char *command);
 char *_getenv(const char *name);
 int pathdir(void);
+list_t *list_directory(void);
+int _setenv(const char *name, const char *value, int overwrite);
+static int add_env(const char *name, const char *value);
 
 #endif
