@@ -9,6 +9,12 @@
 #include <sys/stat.h>
 #include <dirent.h>
 
+typedef struct list_s
+{
+	char *directory;
+	struct list_s *next;
+} list_t;
+
 int arg_print(int ac, char **av);
 void shell_loop(void);
 void _mygetline(void);
@@ -17,5 +23,6 @@ int thefatherexe(void);
 int pathfinder(const char *filename);
 int copy_idandexe(char *command);
 char *_getenv(const char *name);
+int pathdir(void);
 
 #endif

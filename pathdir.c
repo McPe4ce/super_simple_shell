@@ -1,5 +1,8 @@
 #include "sss.h"
 
+/**
+ * pathdir - Prints each directories in the env var PATH
+ */
 int pathdir(void)
 {
     char *copy;
