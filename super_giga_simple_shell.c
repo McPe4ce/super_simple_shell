@@ -3,12 +3,13 @@
 int copy_idandexe(char *command)
 {
     pid_t pid;
+    char *argv[] = {command, NULL};
 
     pid = fork();
 
     if (pid == 0)
     {    
-    execl(command, command, NULL);
+    execve(command, argv, environ);
     perror("RIP, can't even execute properly");
     exit(1);
     }
