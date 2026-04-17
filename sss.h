@@ -27,6 +27,6 @@ char *_getenv(const char *name);
 int pathdir(void);
 list_t *list_directory(void);
 int _setenv(const char *name, const char *value, int overwrite);
-static int add_env(const char *name, const char *value);
+
 
 #endif

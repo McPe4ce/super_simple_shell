@@ -7,9 +7,7 @@ int copy_idandexe(char *command)
     pid = fork();
 
     if (pid == 0)
-    {
-    printf("PPid is: %u\n", getppid());
-    printf("Pid is: %u\n", getpid());    
+    {    
     execl(command, command, NULL);
     perror("RIP, can't even execute properly");
     exit(1);
