@@ -14,9 +14,9 @@ int copy_idandexe(char *command)
 
     if (pid == 0)
     {    
-    execve(command, argv, environ);
-    perror("RIP, can't even execute properly");
-    exit(1);
+        execve(command, argv, environ);
+        perror("Error");
+        exit(127);
     }
     else
     {
@@ -56,10 +56,17 @@ int main(void)
             }
         }
         if (line[0] == '\0')
-            {
-                continue;
-            }
-        copy_idandexe(line);
+        {
+            continue;
+        }
+        if (strcmp(line, "exit") == 0)
+        {
+            break;
+        }
+        if (copy_idandexe(line) == -1)
+        {
+            fprintf(stderr, "./hsh: 1: %s: not found\n", line);
+        }
     }
     free(line);
     printf("\n");
