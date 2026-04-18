@@ -7,6 +7,11 @@ int copy_idandexe(char *command)
 
     pid = fork();
 
+    if (pid == -1)
+    {
+        return (-1);
+    }
+
     if (pid == 0)
     {    
     execve(command, argv, environ);
@@ -15,21 +20,28 @@ int copy_idandexe(char *command)
     }
     else
     {
-        wait(NULL);
+        if (wait(NULL) == -1)
+        {
+            perror("wait");
+            return (-1);
+        }
     }
     return (1);
 }
 
 int main(void)
 {
-    size_t length;
+    size_t length = 0;
     char *line = NULL;
     int null_checker;
 
     while (1)
     {
-        printf("$ ");
-        fflush(stdout);
+        if (isatty(STDIN_FILENO))
+        {
+            printf("$ ");
+            fflush(stdout);
+        }
 
         if (getline(&line, &length, stdin) == -1)
         {
@@ -43,6 +55,10 @@ int main(void)
                 break;
             }
         }
+        if (line[0] == '\0')
+            {
+                continue;
+            }
         copy_idandexe(line);
     }
     free(line);
